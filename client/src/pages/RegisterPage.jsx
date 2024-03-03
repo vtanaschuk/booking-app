@@ -10,11 +10,15 @@ export default function RegisterPage() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:4000/register", {
-        name,
-        email,
-        password,
-      });
+      await axios.post(
+        "http://localhost:4000/register",
+        {
+          name,
+          email,
+          password,
+        },
+        { withCredentials: true }
+      );
       alert("registration successful");
     } catch (e) {
       alert("registration failed");
